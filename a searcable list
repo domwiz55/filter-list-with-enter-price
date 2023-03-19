@@ -1,0 +1,72 @@
+<body>
+    
+<div style="padding-top: 20px;">
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+<ul id="myUL">
+  <li><a href="#">tshirt
+      <button onclick="toggleDiv()">Click Me</button>
+  <div id="myDIV">
+     <img src="white-tee.jpg" class="white-tee">
+  </div></a><div><input type="text"><span>Enter price</span>
+      </div>
+      <!-- alert the currency change -->
+    <select id="currency" name="currency">
+        <option>select currency</option>
+    <option value="GBP">GBP</option>
+    <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+      </select>
+        </li>
+  </ul>
+</div>
+</body>
+<style>
+#myInput {
+  font-size: 16px; 
+  padding: 10px 5px 10px;
+}
+
+#myUL {
+  list-style-type: none;
+}
+
+#myUL li a {
+  width: 100%;
+  background-color: skyblue; 
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.white-tee {
+        width: 50px;
+        height: 50px;
+    }
+</style>
+<script>
+    var x = document.getElementById("myDIV").display="none";
+function toggleDiv() {
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+  x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+    
+function myFunction() {
+  var input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById('myInput');
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myUL");
+  li = ul.getElementsByTagName('li');
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+</script>
